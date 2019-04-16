@@ -25,7 +25,25 @@ public class MyFaceDriver
             Integer[] a = new Integer[] { 3, 6, 1, 32, 9, 2 };
             //   Sort<MyFaceUser> sort = new BubbleSort<>(users, 0, users.length - 1, c, s);
             Sort<MyFaceUser> sort = new QuickSort<>(users, 0, users.length - 1, c, s);  
+            System.out.println("Quicksort:");
             sort.printStats();
+            Sort<MyFaceUser> sort1 = new BubbleSort<>(users, 0, users.length - 1, c, s);
+            System.out.println("BubbleSort:");
+            sort1.printStats();
+
+            Sort<MyFaceUser> sort2 = new InsertionSort<>(users, 0, users.length - 1, c, s);
+            System.out.println("Insertion:");
+            sort2.printStats();
+
+             Sort<MyFaceUser> sort3 = new SelectionSort<>(users, 0, users.length - 1, c, s);
+             System.out.println("Selection:");
+             sort3.printStats();
+            
+            
+
+
+
+
             for(MyFaceUser face : sort.getSorted()) {
 //                System.out.println(face.getAge());
             }
