@@ -1,7 +1,6 @@
 package cs1302.analytics;
-
-import cs1302.myface.MyFace;
-import cs1302.myface.MyFaceUser;
+import cs1302.sorting.*;
+import cs1302.myface.*;
 import java.util.*;
 public class MyFaceDriver
 {
