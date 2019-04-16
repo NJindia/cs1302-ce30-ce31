@@ -25,8 +25,25 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>cs1302.sorting</groupId>
+      <artifactId>cs1302-sorting</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>cs1302.myface</groupId>
+      <artifactId>cs1302-myface</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
+<repositories>
+  <repository>
+    <id>cs1302-repo</id>
+    <url>http://cs.uga.edu/~mec/cs1302-mvn-repo</url>
+  </repository>
+</repositories>
+  
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
