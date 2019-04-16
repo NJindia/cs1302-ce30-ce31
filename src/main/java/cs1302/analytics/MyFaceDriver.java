@@ -13,12 +13,12 @@ public class MyFaceDriver
             
 // setup sorting algorithm
             Comparator<MyFaceUser> c = (e, f) -> {
-                if(e.getAge() < f.getAge()) {
-                    return -1;
-                } else if (e.getAge() == f.getAge()) {
+                if(MyFaceDriver.getSocial(e) < MyFaceDriver.getSocial(f)) {
+                    return 1;
+                } else if (MyFaceDriver.getSocial(e) == MyFaceDriver.getSocial(f)) {
                     return 0;
                 } else {
-                    return 1;
+                    return -1;
                 }
             };
             Swapper<MyFaceUser> s = Swapper.getStandardSwapper();
@@ -34,21 +34,22 @@ public class MyFaceDriver
             Sort<MyFaceUser> sort2 = new InsertionSort<>(users, 0, users.length - 1, c, s);
             System.out.println("Insertion:");
             sort2.printStats();
-
-             Sort<MyFaceUser> sort3 = new SelectionSort<>(users, 0, users.length - 1, c, s);
-             System.out.println("Selection:");
-             sort3.printStats();
+            
+            Sort<MyFaceUser> sort3 = new SelectionSort<>(users, 0, users.length - 1, c, s);
+            System.out.println("Selection:");
+            sort3.printStats();
             
             
 
-
-
-
-            for(MyFaceUser face : sort.getSorted()) {
-//                System.out.println(face.getAge());
-            }
 
 
             
         }
+
+    public static int getSocial(MyFaceUser u) {
+        int friends = u.getFriends().size();
+        int name = u.getName().length();
+        int score = friends * name / u.getAge();
+        return score;
+    }
 }
