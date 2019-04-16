@@ -7,7 +7,7 @@ public class MyFaceDriver
     public static void main(String[] args)
         {
             // generate myface users
-            MyFace socialNetwork = new MyFace(25);
+            MyFace socialNetwork = new MyFace(10000);
             MyFaceUser[] users = socialNetwork.getUsers().stream().toArray(MyFaceUser[]::new);
             System.out.printf("MyFace user count: %d\n", users.length);
             
@@ -23,10 +23,14 @@ public class MyFaceDriver
             };
             Swapper<MyFaceUser> s = Swapper.getStandardSwapper();
             Integer[] a = new Integer[] { 3, 6, 1, 32, 9, 2 };
-            Sort<MyFaceUser> sort = new BubbleSort<>(users, 0, users.length - 1, c, s);
+            //   Sort<MyFaceUser> sort = new BubbleSort<>(users, 0, users.length - 1, c, s);
+            Sort<MyFaceUser> sort = new QuickSort<>(users, 0, users.length - 1, c, s);  
             sort.printStats();
             for(MyFaceUser face : sort.getSorted()) {
-                System.out.println(face.getAge());
+//                System.out.println(face.getAge());
             }
+
+
+            
         }
 }
