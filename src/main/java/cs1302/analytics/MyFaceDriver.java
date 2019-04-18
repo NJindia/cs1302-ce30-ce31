@@ -1,13 +1,14 @@
 package cs1302.analytics;
 import cs1302.sorting.*;
 import cs1302.myface.*;
+import cs1302.myface.Message;
 import java.util.*;
 public class MyFaceDriver
 {
     public static void main(String[] args)
         {
             // generate myface users
-            MyFace socialNetwork = new MyFace(75);
+            MyFace socialNetwork = new MyFace(25);
             MyFaceUser[] users = socialNetwork.getUsers().stream().toArray(MyFaceUser[]::new);
             System.out.printf("MyFace user count: %d\n", users.length);
             
@@ -21,12 +22,13 @@ public class MyFaceDriver
                     return -1;
                 }
             };
-            Swapper<MyFaceUser> s = Swapper.getNetworkSwapper(100);
+            Swapper<MyFaceUser> s = Swapper.getNetworkSwapper(1);
+            // Swapper<MyFaceUser> m = Swapper.getStandardSwapper();
             Integer[] a = new Integer[] { 3, 6, 1, 32, 9, 2 };
             //   Sort<MyFaceUser> sort = new BubbleSort<>(users, 0, users.length - 1, c, s);
             
             Sort<MyFaceUser> sort = new QuickSort<>(users, 0, users.length - 1, c, s);  
-            System.out.println("Quicksort:");
+/*            System.out.println("Quicksort:");
             MyFaceDriver.printEstimate(sort.getStats());
 
             //Sort<MyFaceUser> sort1 = new BubbleSort<>(users, 0, users.length - 1, c, s);
@@ -39,8 +41,11 @@ public class MyFaceDriver
             Sort<MyFaceUser> sort3 = new SelectionSort<>(users, 0, users.length - 1, c, s);
             System.out.println("Selection:");
             MyFaceDriver.printEstimate(sort3.getStats());
-            
-            
+*/
+            for(MyFaceUser n: users)
+            {
+                MyFaceDriver.countLargeWords(n);
+            }
         }
 
     public static int getSocial(MyFaceUser u) {
@@ -69,5 +74,28 @@ public class MyFaceDriver
                            + " us");
 
     }
+
+    public static int countLargeWords(MyFaceUser s)
+        {
+            int words = 0;
+            List<Message> mess = s.getMessages();
+            for(int i = 0;i<mess.size(); i++)
+            {
+                System.out.println(mess.get(i).getContents());
+                
+                if(mess.get(i).getContents().length() >= 5)
+                {
+                    words++;
+                }
+            }
+            if(s !=null)
+            {
+                System.out.println("words:"+  words);
+            }
+            return words;
+
+
+        }
+
     
 }
