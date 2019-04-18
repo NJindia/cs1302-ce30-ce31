@@ -60,12 +60,12 @@ public class MyFaceDriver
      * @param stats an object containing the statistics for a sorting algorithm execution
      */
     public static void printEstimate(Sort.Stats stats) {
-        System.out.println("Total Runtime Estimate\t= " + (
-                               stats.getCompStats().getSum() + (stats.getSwapStats().getSum()))
-            + " s");
-        System.out.println("Average Comparison Time\t= " + stats.getCompStats().getAverage()
+        System.out.println("Total Runtime Estimate\t= " +
+                           ((stats.getCompStats().getSum() + (stats.getSwapStats().getSum())) /
+                            Math.pow(10, 9)) + " s");
+        System.out.println("Average Comparison Time\t= " + (stats.getCompStats().getAverage() /1000)
                            + " us");
-        System.out.println("Average Swap Time\t= " + stats.getSwapStats().getAverage()
+        System.out.println("Average Swap Time\t= " + (stats.getSwapStats().getAverage() /1000)
                            + " us");
 
     }
