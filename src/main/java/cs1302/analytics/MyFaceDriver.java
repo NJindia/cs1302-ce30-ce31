@@ -21,7 +21,7 @@ public class MyFaceDriver
                     return -1;
                 }
             };
-            Swapper<MyFaceUser> s = Swapper.getNetworkSwapper(100);
+            Swapper<MyFaceUser> s = Swapper.getNetworkSwapper(1);
             Integer[] a = new Integer[] { 3, 6, 1, 32, 9, 2 };
             //   Sort<MyFaceUser> sort = new BubbleSort<>(users, 0, users.length - 1, c, s);
             
