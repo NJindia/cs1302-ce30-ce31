@@ -7,7 +7,7 @@ public class MyFaceDriver
     public static void main(String[] args)
         {
             // generate myface users
-            MyFace socialNetwork = new MyFace(75);
+            MyFace socialNetwork = new MyFace(10000);
             MyFaceUser[] users = socialNetwork.getUsers().stream().toArray(MyFaceUser[]::new);
             System.out.printf("MyFace user count: %d\n", users.length);
             
